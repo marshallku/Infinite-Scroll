@@ -42,8 +42,7 @@ function infiniteScroll({
         }
         nextButton && (nextButton = document.querySelector(nextButton)),
         prevButton && (prevButton = document.querySelector(prevButton)),
-        detectLoad === undefined && (detectLoad = true),
-        console.log(container, next, item, detectLoad);
+        detectLoad === undefined && (detectLoad = true)
     }
 
     function noMoreNext() {
