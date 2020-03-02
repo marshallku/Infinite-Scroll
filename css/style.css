@@ -1,0 +1,46 @@
+html, body {
+    margin: 0
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+#container .item {
+    position: relative;
+    width: 32%;
+    height: 0;
+    padding-bottom: 32%;
+    margin-bottom: 2%;
+    margin-right: 2%
+}
+
+#container .item .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#container .item:nth-of-type(3n) {
+    margin-right: 0;
+}
+
+#container .item .img {
+    display: block;
+    max-width: 100%
+}
+
+.loader {
+    display: none
+}
+
+.loader.reveal {
+    display: block
+}
