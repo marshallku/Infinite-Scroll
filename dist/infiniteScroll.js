@@ -1,5 +1,5 @@
 /*
-Infinite Scroll v 1.0
+Infinite Scroll v 1.0.1
 https://github.com/marshall-ku/Infinite-Scroll
 Released under the MIT License.
 by Marshall K
@@ -208,9 +208,8 @@ function infiniteScroll({
                     prevArray.push(element)
                 }),
 
-                loadingPrev = !1,
-                prevPage(),
-                isFirstPage && (
+                isFirstPage
+                ? (
                     detectLoad
                     ? (
                         prevArray.forEach(element => {
@@ -233,6 +232,10 @@ function infiniteScroll({
                             prevCallback && prevCallback(element)
                         })
                     )
+                )
+                : (
+                    loadingPrev = !1,
+                    prevPage()
                 )
             )
             : (
@@ -268,21 +271,21 @@ function infiniteScroll({
         })
     }
 
-    function scroll() {
+    function handlePageLoad() {
         const offsetTop = containerElem.offsetTop;
-        !nextButton && null !== nextElem && !loadingNext && SCROLLY >= offsetTop + containerElem.scrollHeight - windowHeight - 500 && nextPage(),
-        !prevButton && null !== prevElem && !loadingPrev && SCROLLY <= offsetTop + 500 && prevPage()
+        !nextButton && null !== nextElem && "" !== nextElem.getAttribute("href") && !loadingNext && SCROLLY >= offsetTop + containerElem.scrollHeight - windowHeight - 500 && nextPage(),
+        !prevButton && null !== prevElem && "" !== prevElem.getAttribute("href") && !loadingPrev && SCROLLY <= offsetTop + 500 && prevPage()
     }
 
     init(),
     !prevButton && autoPrev && prevPage(),
-    scroll(),
+    handlePageLoad(),
 
     window.addEventListener("scroll", () => {
         TICKING || (
             window.requestAnimationFrame(() => {
                 SCROLLY = (window.scrollY || window.pageYOffset),
-                scroll(),
+                handlePageLoad(),
                 TICKING = false
             }),
             TICKING = true
