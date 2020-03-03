@@ -1,13 +1,14 @@
-@font-face { font-family: 'Recipekorea'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff'); font-weight: normal; font-style: normal; }
-
 html, body {
     margin: 0
+}
+
+body {
+    padding: 10px;
 }
 
 #container {
     display: flex;
     flex-wrap: wrap;
-    padding: 10px;
     max-width: 860px;
     margin: 0 auto;
 }
@@ -45,15 +46,4 @@ html, body {
 
 .loader.reveal {
     display: block
-}
-
-.link {
-    font-family: 'Recipekorea';
-    margin-bottom: 30px;
-    font-size: .8rem
-}
-
-a {
-    color: black;
-    text-decoration: none;
 }
