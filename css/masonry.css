@@ -28,7 +28,8 @@ body {
 }
 
 .loader {
-    display: none
+    display: none;
+    text-align: center
 }
 
 .loader.reveal {
