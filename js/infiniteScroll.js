@@ -1,5 +1,5 @@
 /*
-Infinite Scroll v 1.0.1
+Infinite Scroll v 1.0.4
 https://github.com/marshall-ku/Infinite-Scroll
 Released under the MIT License.
 by Marshall K
@@ -42,6 +42,8 @@ function infiniteScroll({
         }
         nextButton && (nextButton = document.querySelector(nextButton)),
         prevButton && (prevButton = document.querySelector(prevButton)),
+        nextElem === null ? noMoreNext() : "" === nextElem.getAttribute("href") && noMoreNext(),
+        prevElem === null ? noMorePrev() : "" === prevElem.getAttribute("href") && noMorePrev(),
         detectLoad === undefined && (detectLoad = true)
     }
 
@@ -71,7 +73,7 @@ function infiniteScroll({
             imgLength === loadedImg && (
                 pushHistory && history.pushState(null, null, uri),
                 nextLoader && loaderElem.next.classList.remove(reveal),
-                nextButton && (nextButton.style.display = ""),
+                nextButton && !nextElem.classList.contains("done") && (nextButton.style.display = ""),
                 loadingNext = !1,
                 onLoadFinish && onLoadFinish()
             )
@@ -155,12 +157,14 @@ function infiniteScroll({
             imgLength === loadedImg && (
                 prevLoader && loaderElem.prev.classList.remove(reveal),
                 loadingPrev = !1,
+                prevButton && !prevElem.classList.contains("done") && (prevButton.style.display = ""),
                 onLoadFinish && onLoadFinish()
             )
         };
 
         loadingPrev = !0,
         prevLoader && loaderElem.prev.classList.add(reveal),
+        prevButton && (prevButton.style.display = "none"),
 
         fetch(uri)
         .then(response => {
@@ -292,12 +296,12 @@ function infiniteScroll({
         )
     }),
 
-    nextButton && nextButton && (
+    nextButton && (
         nextButton.addEventListener("click", () => {
             nextPage()
         })
     ),
-    prevButton && prevButton && (
+    prevButton && (
         prevButton.addEventListener("click", () => {
             prevPage()
         })
