@@ -5,6 +5,7 @@ html, body {
 }
 
 body {
+    font-family: 'Recipekorea';
     padding: 10px;
 }
 
@@ -50,8 +51,29 @@ body {
     display: block
 }
 
+.center {
+    text-align: center;
+    margin: 20px 0
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px 15px;
+    box-shadow: #c1c1c1 0 0 0 2px inset;
+    transition: all .2s cubic-bezier(.39, .5, .15, 1.36);
+    background: 0 0;
+    outline: 0;
+    cursor: pointer;
+}
+.button:hover {
+    color: #000;
+    box-shadow: #c1c1c1 0 0 0 40px inset
+}
+
 .link {
-    font-family: 'Recipekorea';
     margin-bottom: 30px;
     font-size: .8rem
 }
