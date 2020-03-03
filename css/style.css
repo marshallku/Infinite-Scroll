@@ -51,8 +51,11 @@ body {
     display: block
 }
 
+.center, .loader {
+    text-align: center
+}
+
 .center {
-    text-align: center;
     margin: 20px 0
 }
 
