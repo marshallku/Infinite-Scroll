@@ -1,5 +1,5 @@
 /*
-Infinite Scroll v 1.0.2
+Infinite Scroll v 1.0.3
 https://github.com/marshall-ku/Infinite-Scroll
 Released under the MIT License.
 by Marshall K
@@ -42,6 +42,8 @@ function infiniteScroll({
         }
         nextButton && (nextButton = document.querySelector(nextButton)),
         prevButton && (prevButton = document.querySelector(prevButton)),
+        nextElem === null ? noMoreNext() : "" === nextElem.getAttribute("href") && noMoreNext(),
+        prevElem === null ? noMorePrev() : "" === prevElem.getAttribute("href") && noMorePrev(),
         detectLoad === undefined && (detectLoad = true)
     }
 
