@@ -1,2 +1,2 @@
-# Infinite-Scroll
-Infinite Scroll with Vanilla JS
+# Infinite Scroll
+loads next page automatically
