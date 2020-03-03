@@ -1,0 +1,34 @@
+html, body {
+    margin: 0
+}
+
+body {
+    padding: 10px
+}
+
+#container {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.gutterSizer {
+    width: 2%
+}
+
+#container .item {
+    width: 32%;
+    margin-bottom: 2%;
+}
+
+#container .item .img {
+    display: block;
+    max-width: 100%
+}
+
+.loader {
+    display: none
+}
+
+.loader.reveal {
+    display: block
+}
