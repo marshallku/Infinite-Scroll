@@ -1,5 +1,5 @@
 /*
-Infinite Scroll v 1.0.4
+Infinite Scroll v 1.0.5
 https://github.com/marshall-ku/Infinite-Scroll
 Released under the MIT License.
 by Marshall K
