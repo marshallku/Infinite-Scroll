@@ -97,8 +97,8 @@ function infiniteScroll({
             }
         })
         .then(a => {
-            const parser = new DOMParser().parseFromString(a, "text/html"),
-                items = parser.querySelectorAll(item);
+            const parser = new DOMParser().parseFromString(a, "text/html");
+            const items = parser.querySelectorAll(item);
 
             null === parser.querySelector(next)
             ? (
@@ -114,7 +114,7 @@ function infiniteScroll({
 
             detectLoad
             ? (
-                [...items].forEach(element => {
+                items.forEach(element => {
                     element.querySelector("img") && (
                         [...element.querySelectorAll("img")].forEach(a => {
                             imgLength++,
@@ -129,7 +129,7 @@ function infiniteScroll({
                 })
             )
             : (
-                [...items].forEach(element => {
+                items.forEach(element => {
                     containerElem.append(element),
                     pushHistory && history.pushState(null, null, uri),
                     nextCallback && nextCallback(element)
@@ -183,8 +183,8 @@ function infiniteScroll({
             }
         })
         .then(a => {
-            const parser = new DOMParser().parseFromString(a, "text/html"),
-                items = parser.querySelectorAll(item);
+            const parser = new DOMParser().parseFromString(a, "text/html");
+            const items = parser.querySelectorAll(item);
 
             isFirstPage = autoPrev && (isFirstPage ? !0 : (null === parser.querySelector(prev) ? !0 : (parser.querySelector(prev).getAttribute("href") === "")));
 
