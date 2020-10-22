@@ -116,7 +116,7 @@ function infiniteScroll({
             ? (
                 items.forEach(element => {
                     element.querySelector("img") && (
-                        [...element.querySelectorAll("img")].forEach(a => {
+                        element.querySelectorAll("img").forEach(a => {
                             imgLength++,
                             a.onload = () => {
                                 loadedImg++,
@@ -208,7 +208,7 @@ function infiniteScroll({
                 )
                 : (d.href = parser.querySelector(prev).href),
 
-                [...parser.querySelectorAll(item)].reverse().forEach(element => {
+                parser.querySelectorAll(item).reverse().forEach(element => {
                     prevArray.push(element)
                 }),
 
@@ -218,7 +218,7 @@ function infiniteScroll({
                     ? (
                         prevArray.forEach(element => {
                             element.querySelector("img") && (
-                                [...element.querySelectorAll("img")].forEach(a => {
+                                element.querySelectorAll("img").forEach(a => {
                                     imgLength++,
                                     a.onload = () => {
                                         loadedImg++,
@@ -245,9 +245,9 @@ function infiniteScroll({
             : (
                 detectLoad
                 ? (
-                    [...items].reverse().forEach(element => {
+                    items.reverse().forEach(element => {
                         element.querySelector("img") && (
-                            [...element.querySelectorAll("img")].forEach(a => {
+                            element.querySelectorAll("img").forEach(a => {
                                 imgLength++,
                                 a.onload = () => {
                                     loadedImg++,
@@ -260,7 +260,7 @@ function infiniteScroll({
                     })
                 )
                 : (
-                    [...items].reverse().forEach(element => {
+                    items.reverse().forEach(element => {
                         containerElem.prepend(element),
                         pushHistory && history.pushState(null, null, uri),
                         prevCallback && prevCallback(element)
