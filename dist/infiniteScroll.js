@@ -1,5 +1,5 @@
 /*
-Infinite Scroll v 1.0.5
+Infinite Scroll v 1.0.6
 https://github.com/marshall-ku/Infinite-Scroll
 Released under the MIT License.
 by Marshall K
@@ -290,13 +290,14 @@ function infiniteScroll({
     window.addEventListener(
         "scroll",
         () => {
-            TICKING ||
-                (window.requestAnimationFrame(() => {
-                    (SCROLLY = window.scrollY || window.pageYOffset),
-                        handlePageLoad(),
-                        (TICKING = false);
-                }),
-                (TICKING = true));
+            if (!TICKING) {
+                TICKING = true;
+                window.requestAnimationFrame(() => {
+                    SCROLLY = window.scrollY || window.pageYOffset;
+                    handlePageLoad();
+                    TICKING = false;
+                });
+            }
         },
         { passive: true }
     );
